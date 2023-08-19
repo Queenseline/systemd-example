@@ -1,0 +1,16 @@
+[Unit]
+  Description= a servise on how to start a nodejs app
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/queen
+ExecStart=/bin/npm run start:dev
+Restart=on-failure
+RestartSec=3seconds
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=queen
+
+[Install]
+WantedBy=multi-user.target
